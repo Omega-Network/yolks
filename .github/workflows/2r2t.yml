@@ -3,7 +3,7 @@ name: build 2r2t
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 17 1,15 * *" # bi-weekly on 1st and 15th calendar day at 17:00
+    - cron: "0 0 * * *" # every day at midnight
   push:
     branches:
       - main
