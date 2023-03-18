@@ -1,4 +1,5 @@
 FROM        azul/zulu-openjdk:17
+FROM        chihchun/opencl-mesa:latest
 
 LABEL       author="Volas171" maintainer="volas@mindustry.me"
 LABEL       org.opencontainers.image.source="https://github.com/Omega-Network/yolks"
