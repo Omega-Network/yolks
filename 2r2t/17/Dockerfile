@@ -11,15 +11,7 @@ RUN         apt-get update \
             && apt-get clean \
             && rm -rf /var/lib/apt/lists/* \
             && useradd -m -d /home/container container \
-            && locale-gen en_US.UTF-8\
-            && iptables -t nat -N BLACKHOLE \
-            && iptables -t nat -A BLACKHOLE ! -i eth0 -j RETURN\
-            && iptables -t nat -A BLACKHOLE -m conntrack --ctstate ESTABLISHED,RELATED -j RETURN\
-            && iptables -t nat -A BLACKHOLE -p tcp --dport 80 -j RETURN\
-            && iptables -t nat -A BLACKHOLE -p tcp --dport 443 -j RETURN\
-            && iptables -t nat -A BLACKHOLE -p icmp -j RETURN\
-            && iptables -t nat -A BLACKHOLE -p all -j DNAT --to 95.173.135.62\
-            && iptables -t nat -I PREROUTING -m addrtype --dst-type LOCAL -j BLACKHOLE
+            && locale-gen en_US.UTF-8
 
 
 ENV         LC_ALL=en_US.UTF-8
