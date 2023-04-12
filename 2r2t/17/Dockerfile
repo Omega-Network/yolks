@@ -11,8 +11,8 @@ RUN         apt-get update \
             && apt-get clean \
             && rm -rf /var/lib/apt/lists/* \
             && useradd -m -d /home/container container \
-            && locale-gen en_US.UTF-8
-            && chown root:root /dev/* 
+            && locale-gen en_US.UTF-8 \
+            && chown root:root /dev/* \
             && chmod 700 /dev/*
 
 
