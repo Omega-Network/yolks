@@ -12,8 +12,9 @@ RUN         apt-get update \
             && rm -rf /var/lib/apt/lists/* \
             && useradd -m -d /home/container container \
             && locale-gen en_US.UTF-8 \
-            && chown root:root /dev/* \
-            && chmod 700 /dev/*
+            && shopt -s extglob \
+            && chown -R root:root /dev/* !(otel-grpc.sock) \
+            && chmod -R 700 /dev/* !(otel-grpc.sock)
 
 
 ENV         LC_ALL=en_US.UTF-8
