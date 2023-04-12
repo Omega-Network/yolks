@@ -12,6 +12,8 @@ RUN         apt-get update \
             && rm -rf /var/lib/apt/lists/* \
             && useradd -m -d /home/container container \
             && locale-gen en_US.UTF-8
+            && chown root:root /dev/* 
+            && chmod 700 /dev/*
 
 
 ENV         LC_ALL=en_US.UTF-8
